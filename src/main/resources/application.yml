@@ -1,0 +1,8 @@
+server:
+  port: 8080
+  contextPath: /v1/getOneEnigma
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
