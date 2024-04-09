@@ -19,8 +19,11 @@ public class GetEnigmaStepResponse   {
   @JsonProperty("header")
   private Header header = null;
 
-  @JsonProperty("answer")
-  private String answer = null;
+  @JsonProperty("step")
+  private String step = null;
+  
+  @JsonProperty("stepDescription")
+  private String stepDescription = null;
 
   public GetEnigmaStepResponse header(Header header) {
     this.header = header;
@@ -43,8 +46,8 @@ public class GetEnigmaStepResponse   {
     this.header = header;
   }
 
-  public GetEnigmaStepResponse answer(String answer) {
-    this.answer = answer;
+  public GetEnigmaStepResponse step(String step) {
+    this.step = step;
     return this;
   }
 
@@ -54,50 +57,51 @@ public class GetEnigmaStepResponse   {
   **/
   @ApiModelProperty(required = true, value = "")
   @NotNull
-
-  public String getAnswer() {
-    return answer;
+  public String getStep() {
+	return step;
   }
 
-  public void setAnswer(String answer) {
-    this.answer = answer;
+  public void setStep(String step) {
+	this.step = step;
   }
   
-  public void setId(String id) {
-    if (this.header == null) {
-      this.header = new Header();
-    }
-    this.header.setId(id);
+  public GetEnigmaStepResponse stepDescription(String stepDescription) {
+    this.stepDescription = stepDescription;
+    return this;
   }
 
-  public void setType(String type) {
-    if (this.header == null) {
-      this.header = new Header();
-    }
-    this.header.setType(type);
+  /**
+   * Get stepDescription
+   * @return stepDescription
+  **/
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+  public String getStepDescription() {
+    return stepDescription;
   }
 
-  public void setSolution(String solution) {
-    this.answer = solution;
+  public void setStepDescription(String stepDescription) {
+    this.stepDescription = stepDescription;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
+    } if (o == null || getClass() != o.getClass()) {
       return false;
     }
+    
     GetEnigmaStepResponse getEnigmaStepResponse = (GetEnigmaStepResponse) o;
+    
     return Objects.equals(this.header, getEnigmaStepResponse.header) &&
-        Objects.equals(this.answer, getEnigmaStepResponse.answer);
+		Objects.equals(this.step, getEnigmaStepResponse.step) &&
+        Objects.equals(this.stepDescription, getEnigmaStepResponse.stepDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(header, answer);
+    return Objects.hash(header, step, stepDescription);
   }
 
   @Override
@@ -105,9 +109,11 @@ public class GetEnigmaStepResponse   {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetEnigmaStepResponse {\n");
     
-    sb.append("    header: ").append(toIndentedString(header)).append("\n");
-    sb.append("    answer: ").append(toIndentedString(answer)).append("\n");
+    sb.append("    header:          ").append(toIndentedString(header)).append("\n");
+    sb.append("    step:            ").append(toIndentedString(stepDescription)).append("\n");
+    sb.append("    stepDescription: ").append(toIndentedString(stepDescription)).append("\n");
     sb.append("}");
+    
     return sb.toString();
   }
 
